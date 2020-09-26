@@ -5,7 +5,7 @@ class Curso(var codCurso: Int,
             var profTitu: ProfessorTitular,
             var profAdj: ProfessorAdjunto,
             var maxAlun: Int,
-            var listaAlun: List<Aluno>
+            var listaAlun: MutableList<Aluno>
             ) {
 
     override fun equals(other: Any?): Boolean {
@@ -15,5 +15,17 @@ class Curso(var codCurso: Int,
         if (codCurso != other.codCurso) return false
 
         return true
+    }
+
+    fun adicionarUmAluno(umAluno: Aluno): Boolean {
+        if(listaAlun.size >= maxAlun) return false
+        listaAlun.forEach{if(it.equals(umAluno)) return false}
+
+        listaAlun.add(umAluno)
+        return true
+    }
+
+    fun excluirAluno(umAluno: Aluno){
+        listaAlun.forEach{if(it.equals(umAluno)) listaAlun.remove(it)}
     }
 }
