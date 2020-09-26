@@ -1,11 +1,6 @@
 package br.com.digitalHouse
 
-class Aluno (
-        var codAluno: Int,
-        var nome : String,
-        var sobrenome: String
-)
-{
+class Aluno (override var nome: String, override var sobrenome: String, var codAluno: Int) : Pessoa {
 
     override fun equals(other: Any?): Boolean {
         if(this === other) return true
