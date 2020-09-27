@@ -8,7 +8,7 @@ class Curso(
 
     lateinit var profTitu: ProfessorTitular
     lateinit var profAdj: ProfessorAdjunto
-    lateinit var listaAlun: MutableList<Aluno>
+    var listaAlun =  mutableListOf<Aluno>()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

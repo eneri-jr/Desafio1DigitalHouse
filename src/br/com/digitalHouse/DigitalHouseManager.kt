@@ -32,13 +32,12 @@ class DigitalHouseManager {
     }
 
     fun matricularAluno(codigoAluno: Int, codigoCurso: Int){
-
-        var curso : Curso = listCurso.find{it.codCurso == codigoCurso}!!
-        var aluno : Aluno = listAlun.find{it.codAluno == codigoAluno}!!
-
+            var curso: Curso = listCurso.find { it.codCurso == codigoCurso }!!
+            var aluno: Aluno = listAlun.find { it.codAluno == codigoAluno }!!
         when {
             curso.adicionarUmAluno(aluno) -> {
                 listMatric.add(Matricula(aluno, curso))
+                curso.listaAlun.add(aluno)
                 println("Matricula realizada com sucesso")
             }
             else -> println("Não há mais vagas para este curso")
